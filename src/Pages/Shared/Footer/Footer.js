@@ -1,13 +1,12 @@
 import { Container } from '@mui/material';
 import React from 'react';
-import Banner from '../Banner/Banner';
 
-const Home = () => {
+const Footer = () => {
     return (
         <Container>
-            <Banner></Banner>
+            <h2>Footer</h2>
         </Container>
     );
 };
 
-export default Home;
+export default Footer;
