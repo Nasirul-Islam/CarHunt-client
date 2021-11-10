@@ -15,6 +15,7 @@ const Navigation = () => {
   const handlelogout = () => {
     logOut();
   };
+  console.log(user);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -35,12 +36,6 @@ const Navigation = () => {
             <Link to="/home" style={{ textDecoration: "none", color: "white" }}>
               <Button color="inherit">Home</Button>
             </Link>
-            <Link to="/home" style={{ textDecoration: "none", color: "white" }}>
-              <Button color="inherit">About</Button>
-            </Link>
-            <Link to="/home" style={{ textDecoration: "none", color: "white" }}>
-              <Button color="inherit">Contact</Button>
-            </Link>
             {!user?.email ? (
               <Link
                 to="/login"
@@ -49,9 +44,17 @@ const Navigation = () => {
                 <Button color="inherit">Login</Button>
               </Link>
             ) : (
-              <Button onClick={handlelogout} color="inherit">
-                LogOut
-              </Button>
+              <>
+                <Link
+                  to="/dashBoard"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  <Button color="inherit">DashBoard</Button>
+                </Link>
+                <Button onClick={handlelogout} color="inherit">
+                  LogOut
+                </Button>
+              </>
             )}
           </Toolbar>
         </Container>

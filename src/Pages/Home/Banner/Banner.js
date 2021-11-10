@@ -17,7 +17,7 @@ const Banner = () => {
           UNSURE WHICH VEHICLE YOU ARE LOOKING FOR? <br /> <br /> FIND IT HERE
         </Typography>
         <br />
-        <Link to="/allServices">
+        <Link to="/allProducts">
           <Button
             sx={{
               py: 2,

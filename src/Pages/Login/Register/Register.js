@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import "./Register.css";
 import useAuth from "../../../hooks/useAuth";
+import Footer from "../../Shared/Footer/Footer";
+import Navigation from "../../Shared/Navigation/Navigation";
 
 const Register = () => {
   const { registerUser } = useAuth();
@@ -30,44 +32,48 @@ const Register = () => {
     console.log(data);
   };
   return (
-    <Container sx={{ textAlign: "center", my: 5 }}>
-      <Typography
-        sx={{ fontWeight: 600, color: "secondary.main" }}
-        variant="h3"
-        gutterBottom
-        component="div"
-      >
-        Please Register
-      </Typography>
-      <form onSubmit={handleSubmit(onSubmit)} className="loginform">
-        <input placeholder="Name" {...register("displayName")} />
+    <>
+      <Navigation></Navigation>
+      <Container sx={{ textAlign: "center", my: 5 }}>
+        <Typography
+          sx={{ fontWeight: 600, color: "secondary.main" }}
+          variant="h3"
+          gutterBottom
+          component="div"
+        >
+          Please Register
+        </Typography>
+        <form onSubmit={handleSubmit(onSubmit)} className="loginform">
+          <input placeholder="Name" {...register("displayName")} />
+          <br />
+          <input placeholder="Email" type="email" {...register("email")} />
+          <br />
+          <input
+            type="password"
+            placeholder="Password"
+            {...register("password", { required: true })}
+          />
+          <br />
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            {...register("password2")}
+          />
+          <br />
+          {errors.password && <span>This field is required</span>}
+          <br />
+          <input type="submit" value="Register" className="submitBtn" />
+        </form>
         <br />
-        <input placeholder="Email" type="email" {...register("email")} />
-        <br />
-        <input
-          type="password"
-          placeholder="Password"
-          {...register("password", { required: true })}
-        />
-        <br />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          {...register("password2")}
-        />
-        <br />
-        {errors.password && <span>This field is required</span>}
-        <br />
-        <input type="submit" value="Register" className="submitBtn" />
-      </form>
-      <br />
-      <Link
-        to="/login"
-        style={{ textDecoration: "none", color: "#7b1fa2", fontWeight: 700 }}
-      >
-        Already Register? Please Login
-      </Link>
-    </Container>
+        <Link
+          to="/login"
+          style={{ textDecoration: "none", color: "#7b1fa2", fontWeight: 700 }}
+        >
+          Already Register? Please Login
+        </Link>
+      </Container>
+      <Footer></Footer>
+    </>
   );
 };
 

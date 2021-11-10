@@ -4,19 +4,17 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Login from "./Pages/Login/Login/Login";
 import Register from "./Pages/Login/Register/Register";
 import NotFound from "./Pages/NotFound/NotFound";
-import Navigation from "./Pages/Shared/Navigation/Navigation";
-import Footer from "./Pages/Shared/Footer/Footer";
-import AllServices from "./Pages/AllServices/AllServices";
-import Services from "./Pages/Home/Services/Services";
 import AuthProvider from "./context/AuthProvider/AuthProvider";
 import PrivetRoute from "./Pages/Login/PrivetRoute/PrivetRoute";
+import DashBoard from "./Pages/DashBoard/DashBoard/DashBoard";
+import AllProducts from "./Pages/AllProducts/AllProducts";
+import Products from "./Pages/Home/Products/Products";
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
-          <Navigation></Navigation>
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -24,11 +22,14 @@ function App() {
             <Route path="/home">
               <Home></Home>
             </Route>
-            <Route path="/Services">
-              <Services></Services>
+            <Route path="/products">
+              <Products></Products>
             </Route>
-            <PrivetRoute path="/allServices">
-              <AllServices></AllServices>
+            <Route path="/allProducts">
+              <AllProducts></AllProducts>
+            </Route>
+            <PrivetRoute path="/dashBoard">
+              <DashBoard></DashBoard>
             </PrivetRoute>
             <Route path="/login">
               <Login></Login>
@@ -40,7 +41,6 @@ function App() {
               <NotFound></NotFound>
             </Route>
           </Switch>
-          <Footer></Footer>
         </Router>
       </AuthProvider>
     </div>
