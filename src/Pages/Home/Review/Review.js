@@ -1,7 +1,7 @@
 import { Container, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 
-const Services = () => {
+const Review = () => {
   const services = [
     {
       name: "carhunt",
@@ -39,6 +39,24 @@ const Services = () => {
       price: "300000",
       id: 6,
     },
+    {
+      name: "carhunt",
+      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
+      price: "300000",
+      id: 7,
+    },
+    {
+      name: "carhunt",
+      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
+      price: "300000",
+      id: 8,
+    },
+    {
+      name: "carhunt",
+      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
+      price: "300000",
+      id: 9,
+    },
   ];
   return (
     <Container sx={{ textAlign: "center", my: 5 }}>
@@ -48,11 +66,11 @@ const Services = () => {
         gutterBottom
         component="div"
       >
-        OUR VEHICLES
+        REVIEWS
       </Typography>
       <Grid container spacing={2}>
         {services.map((service) => (
-          <Grid item xs={12} sm={6} md={4} key={service.id}>
+          <Grid item xs={12} sm={6} md={3} key={service.id}>
             <Paper elevation={3}>
               <h2>{service.name}</h2>
               <h3>{service.describe}</h3>
@@ -65,4 +83,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Review;
