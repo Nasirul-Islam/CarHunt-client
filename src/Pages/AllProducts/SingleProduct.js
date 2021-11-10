@@ -6,9 +6,15 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Grid } from "@mui/material";
+import { useHistory } from "react-router-dom";
 
 const SingleProduct = ({ product }) => {
-  const { productName, description, price, img } = product;
+  const { productName, description, price, img, _id } = product;
+  const url = `purchase/${_id}`;
+  const history = useHistory();
+  const handlePurchase = () => {
+    history.push(url);
+  };
   return (
     <>
       <Grid item xs={12} sm={6} md={4}>
@@ -27,11 +33,17 @@ const SingleProduct = ({ product }) => {
               {description}
             </Typography>
           </CardContent>
-          <CardActions>
+          <CardActions
+            sx={{ display: "flex", justifyContent: "space-between" }}
+          >
             <Typography variant="body2" color="text.secondary">
-              {price}
+              Price: {price}
             </Typography>
-            <Button variant="contained" color="secondary">
+            <Button
+              onClick={handlePurchase}
+              variant="contained"
+              color="secondary"
+            >
               Purchase
             </Button>
           </CardActions>

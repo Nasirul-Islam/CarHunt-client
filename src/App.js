@@ -9,6 +9,7 @@ import PrivetRoute from "./Pages/Login/PrivetRoute/PrivetRoute";
 import DashBoard from "./Pages/DashBoard/DashBoard/DashBoard";
 import AllProducts from "./Pages/AllProducts/AllProducts";
 import Products from "./Pages/Home/Products/Products";
+import Purchase from "./Pages/Purchase/Purchase";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <PrivetRoute path="/dashBoard">
               <DashBoard></DashBoard>
+            </PrivetRoute>
+            <PrivetRoute path="/purchase/:id">
+              <Purchase></Purchase>
             </PrivetRoute>
             <Route path="/login">
               <Login></Login>

@@ -18,7 +18,7 @@ const Navigation = () => {
   console.log(user);
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ backgroundColor: "#19539c" }}>
         <Container>
           <Toolbar>
             <IconButton
