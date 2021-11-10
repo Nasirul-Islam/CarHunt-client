@@ -7,6 +7,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Navigation from "./Pages/Shared/Navigation/Navigation";
 import Footer from "./Pages/Shared/Footer/Footer";
 import AllServices from "./Pages/AllServices/AllServices";
+import Services from "./Pages/Home/Services/Services";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home></Home>
+          </Route>
+          <Route path="/Services">
+            <Services></Services>
           </Route>
           <Route path="/allServices">
             <AllServices></AllServices>
