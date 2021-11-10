@@ -3,10 +3,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useHistory } from "react-router-dom";
 import "./Register.css";
-import useFirebase from "../../../hooks/useFirebase";
+import useAuth from "../../../hooks/useAuth";
 
 const Register = () => {
-  const { registerUser } = useFirebase();
+  const { registerUser } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const {
@@ -23,7 +23,6 @@ const Register = () => {
         location,
         history
       );
-      alert("Successfully Registered");
     } else {
       alert("Your Password Don't Match");
       return;
@@ -62,7 +61,10 @@ const Register = () => {
         <input type="submit" value="Register" className="submitBtn" />
       </form>
       <br />
-      <Link to="/login" style={{ textDecoration: "none" }}>
+      <Link
+        to="/login"
+        style={{ textDecoration: "none", color: "#7b1fa2", fontWeight: 700 }}
+      >
         Already Register? Please Login
       </Link>
     </Container>

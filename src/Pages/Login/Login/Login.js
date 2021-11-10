@@ -2,11 +2,11 @@ import { Button, Container, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useHistory } from "react-router-dom";
-import useFirebase from "../../../hooks/useFirebase";
+import useAuth from "../../../hooks/useAuth";
 import "./Login.css";
 
 const Login = () => {
-  const { user, loginwithEmail, loginWithGoogle } = useFirebase();
+  const { user, loginwithEmail, loginWithGoogle } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const {
@@ -45,19 +45,27 @@ const Login = () => {
         <input type="submit" value="Login" className="submitBtn" />
       </form>
       <br />
-      <Link to="/register" style={{ textDecoration: "none" }}>
+      <Link
+        to="/register"
+        style={{ textDecoration: "none", color: "#7b1fa2", fontWeight: 700 }}
+      >
         New User? Please Register
       </Link>
       <Typography
-        sx={{ fontWeight: 600, color: "secondary.main" }}
-        variant="h3"
+        sx={{ fontWeight: 500, color: "secondary.main" }}
+        variant="h5"
         gutterBottom
         component="div"
       >
-        {" "}
-        or{" "}
+        _____________ or ____________
       </Typography>
-      <Button onClick={handleGoogleLogin} variant="contained" color="secondary">
+      <br />
+      <Button
+        onClick={handleGoogleLogin}
+        sx={{ width: "42%", py: 1, borderRadius: 2 }}
+        variant="contained"
+        color="secondary"
+      >
         Login With Google
       </Button>
     </Container>

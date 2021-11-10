@@ -8,10 +8,10 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Container } from "@mui/material";
 import { Link } from "react-router-dom";
-import useFirebase from "../../../hooks/useFirebase";
+import useAuth from "../../../hooks/useAuth";
 
 const Navigation = () => {
-  const { user, logOut } = useFirebase();
+  const { user, logOut } = useAuth();
   const handlelogout = () => {
     logOut();
   };
@@ -24,7 +24,7 @@ const Navigation = () => {
               size="large"
               edge="start"
               color="inherit"
-              aria-label="menu"
+              aria-label="open drawer"
               sx={{ mr: 2 }}
             >
               <MenuIcon />
@@ -34,6 +34,12 @@ const Navigation = () => {
             </Typography>
             <Link to="/home" style={{ textDecoration: "none", color: "white" }}>
               <Button color="inherit">Home</Button>
+            </Link>
+            <Link to="/home" style={{ textDecoration: "none", color: "white" }}>
+              <Button color="inherit">About</Button>
+            </Link>
+            <Link to="/home" style={{ textDecoration: "none", color: "white" }}>
+              <Button color="inherit">Contact</Button>
             </Link>
             {!user?.email ? (
               <Link
