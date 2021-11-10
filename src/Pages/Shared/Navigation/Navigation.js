@@ -1,19 +1,19 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { Container } from '@mui/material';
-import { Link } from 'react-router-dom';
+import * as React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Container } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
-    return (
-        <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-            <Container>
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Container>
           <Toolbar>
             <IconButton
               size="large"
@@ -27,21 +27,20 @@ const Navigation = () => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               News
             </Typography>
-            <Link 
-            to="/home"
-            style={{textDecoration: 'none', color: 'white'}}>
-            <Button color="inherit">Home</Button>
+            <Link to="/home" style={{ textDecoration: "none", color: "white" }}>
+              <Button color="inherit">Home</Button>
             </Link>
-            <Link 
-            to="/login"
-            style={{textDecoration: 'none', color: 'white'}}>
-            <Button color="inherit">Login</Button>
+            <Link
+              to="/login"
+              style={{ textDecoration: "none", color: "white" }}
+            >
+              <Button color="inherit">Login</Button>
             </Link>
           </Toolbar>
-          </Container>
-        </AppBar>
-      </Box>
-    );
+        </Container>
+      </AppBar>
+    </Box>
+  );
 };
 
 export default Navigation;

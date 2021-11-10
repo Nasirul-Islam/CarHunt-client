@@ -1,13 +1,13 @@
-import { Container } from '@mui/material';
-import React from 'react';
-import Banner from '../Banner/Banner';
+import { Box } from "@mui/system";
+import React from "react";
+import Banner from "../Banner/Banner";
 
 const Home = () => {
-    return (
-        <Container>
-            <Banner></Banner>
-        </Container>
-    );
+  return (
+    <Box>
+      <Banner></Banner>
+    </Box>
+  );
 };
 
 export default Home;
