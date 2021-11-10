@@ -1,4 +1,4 @@
-import { Container, Grid, Paper, Typography } from "@mui/material";
+import { Button, Container, Grid, Paper, Typography } from "@mui/material";
 import React from "react";
 
 const Services = () => {
@@ -57,6 +57,7 @@ const Services = () => {
               <h2>{service.name}</h2>
               <h3>{service.describe}</h3>
               <h4>{service.price}</h4>
+              <Button>Purchase Now</Button>
             </Paper>
           </Grid>
         ))}

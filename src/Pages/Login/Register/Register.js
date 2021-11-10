@@ -1,20 +1,39 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import "./Register.css";
+import useFirebase from "../../../hooks/useFirebase";
 
 const Register = () => {
+  const { registerUser } = useFirebase();
+  const location = useLocation();
+  const history = useHistory();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    if (data.password === data.password2) {
+      registerUser(
+        data.email,
+        data.password,
+        data.displayName,
+        location,
+        history
+      );
+      alert("Successfully Registered");
+    } else {
+      alert("Your Password Don't Match");
+      return;
+    }
+    console.log(data);
+  };
   return (
     <Container sx={{ textAlign: "center", my: 5 }}>
       <Typography
-        sx={{ fontWeight: 600, color: "#50e250;" }}
+        sx={{ fontWeight: 600, color: "secondary.main" }}
         variant="h3"
         gutterBottom
         component="div"
@@ -22,7 +41,7 @@ const Register = () => {
         Please Register
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)} className="loginform">
-        <input placeholder="Name" {...register("name")} />
+        <input placeholder="Name" {...register("displayName")} />
         <br />
         <input placeholder="Email" type="email" {...register("email")} />
         <br />

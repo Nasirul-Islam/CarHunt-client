@@ -8,8 +8,13 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Container } from "@mui/material";
 import { Link } from "react-router-dom";
+import useFirebase from "../../../hooks/useFirebase";
 
 const Navigation = () => {
+  const { user, logOut } = useFirebase();
+  const handlelogout = () => {
+    logOut();
+  };
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -25,17 +30,23 @@ const Navigation = () => {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              News
+              CARHUNT
             </Typography>
             <Link to="/home" style={{ textDecoration: "none", color: "white" }}>
               <Button color="inherit">Home</Button>
             </Link>
-            <Link
-              to="/login"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              <Button color="inherit">Login</Button>
-            </Link>
+            {!user?.email ? (
+              <Link
+                to="/login"
+                style={{ textDecoration: "none", color: "white" }}
+              >
+                <Button color="inherit">Login</Button>
+              </Link>
+            ) : (
+              <Button onClick={handlelogout} color="inherit">
+                LogOut
+              </Button>
+            )}
           </Toolbar>
         </Container>
       </AppBar>
