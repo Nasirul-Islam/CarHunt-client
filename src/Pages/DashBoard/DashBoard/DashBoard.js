@@ -32,6 +32,7 @@ import Payment from "../Payment/Payment";
 import AddReview from "../AddReview/AddReview";
 import ManageProduct from "../ManageProduct/ManageProduct";
 import ManageUser from "../ManageUser/ManageUser";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
 
 const drawerWidth = 200;
 
@@ -109,6 +110,15 @@ function DashBoard(props) {
         <Button color="inherit">
           <DeleteForeverIcon sx={{ color: "secondary.main", mr: 2 }} />
           Manage Product
+        </Button>
+      </NavLink>
+      <NavLink
+        style={{ textDecoration: "none", color: "blue" }}
+        to={`${url}/makeAdmin`}
+      >
+        <Button color="inherit">
+          <ManageAccountsIcon sx={{ color: "secondary.main", mr: 2 }} />
+          Make Admin
         </Button>
       </NavLink>
       <NavLink
@@ -224,6 +234,9 @@ function DashBoard(props) {
           </Route>
           <Route path={`${path}/manageProduct`}>
             <ManageProduct></ManageProduct>
+          </Route>
+          <Route path={`${path}/makeAdmin`}>
+            <MakeAdmin></MakeAdmin>
           </Route>
           <Route path={`${path}/manageUser`}>
             <ManageUser></ManageUser>

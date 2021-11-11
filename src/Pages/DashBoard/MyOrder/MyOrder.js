@@ -1,21 +1,33 @@
+import { Grid, Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../../hooks/useAuth";
+import SingleOrder from "../SingleOrder/SingleOrder";
 
 const MyOrder = () => {
   const [order, setOrder] = useState([]);
   const { user } = useAuth();
   useEffect(() => {
-    fetch(`http://localhost:5000/order?${user?.email}`)
+    fetch(`http://localhost:5000/order?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setOrder(data);
-        console.log(data);
       });
   }, [user.email]);
-  console.log(user);
   return (
     <div>
-      <h2>orders {order?.length}</h2>
+      <Typography
+        sx={{ textAlign: "center", fontWeight: 600, color: "secondary.main" }}
+        variant="h3"
+        gutterBottom
+        component="div"
+      >
+        Total Order {order?.length}
+      </Typography>
+      <Grid container spacing={2}>
+        {order?.map((order) => (
+          <SingleOrder key={order._id} order={order}></SingleOrder>
+        ))}
+      </Grid>
     </div>
   );
 };

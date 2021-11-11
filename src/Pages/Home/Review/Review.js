@@ -4,7 +4,6 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import StarIcon from "@mui/icons-material/Star";
-import { Box } from "@mui/system";
 
 const Review = () => {
   const [review, setReview] = useState([]);
@@ -13,7 +12,6 @@ const Review = () => {
       .then((res) => res.json())
       .then((data) => {
         setReview(data);
-        console.log(data);
       });
   }, []);
   return (
@@ -55,7 +53,7 @@ const Review = () => {
                 >
                   Rating: {data?.rating}
                 </Typography>
-                <StarIcon sx={{ color: "info.main" }} />
+                <StarIcon sx={{ color: "error.main" }} />
               </CardActions>
             </Card>
           </Grid>

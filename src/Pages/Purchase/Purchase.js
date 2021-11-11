@@ -115,7 +115,7 @@ const Purchase = () => {
               <br />
               {errors.password && <span>This field is required</span>}
               <br />
-              <input type="submit" value="Register" className="submitBtn" />
+              <input type="submit" value="Purchase" className="submitBtn" />
             </form>
           </Grid>
         </Grid>
