@@ -37,7 +37,7 @@ const Review = () => {
                   {data?.name}
                 </Typography>
                 <Typography variant="body2" sx={{ fontWeight: 400 }}>
-                  {data?.comment}
+                  {data?.comment.slice(0, 200)}...
                 </Typography>
               </CardContent>
               <CardActions

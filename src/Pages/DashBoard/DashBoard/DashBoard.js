@@ -12,12 +12,13 @@ import Typography from "@mui/material/Typography";
 import AddProduct from "../AddProduct/AddProduct";
 import HomeIcon from "@mui/icons-material/Home";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ReviewsIcon from "@mui/icons-material/Reviews";
 import PaymentIcon from "@mui/icons-material/Payment";
 import AddBoxIcon from "@mui/icons-material/AddBox";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import {
   Switch,
   Route,
@@ -33,6 +34,8 @@ import AddReview from "../AddReview/AddReview";
 import ManageProduct from "../ManageProduct/ManageProduct";
 import ManageUser from "../ManageUser/ManageUser";
 import MakeAdmin from "../MakeAdmin/MakeAdmin";
+import AdminRoute from "../../Login/AdminRoute/AdminRoute";
+import ManageOrder from "../ManageOrder/ManageOrder";
 
 const drawerWidth = 200;
 
@@ -41,6 +44,7 @@ function DashBoard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   let { path, url } = useRouteMatch();
+  const { admin } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -72,7 +76,7 @@ function DashBoard(props) {
         to={`${url}/myOrder`}
       >
         <Button color="inherit">
-          <BookmarkBorderIcon sx={{ color: "secondary.main", mr: 2 }} />
+          <ShoppingCartIcon sx={{ color: "secondary.main", mr: 2 }} />
           My Order
         </Button>
       </NavLink>
@@ -94,47 +98,62 @@ function DashBoard(props) {
           Payment
         </Button>
       </NavLink>
-      <NavLink
-        style={{ textDecoration: "none", color: "blue" }}
-        to={`${url}/addProduct`}
-      >
-        <Button color="inherit">
-          <AddBoxIcon sx={{ color: "secondary.main", mr: 2 }} />
-          Add Product
-        </Button>
-      </NavLink>
-      <NavLink
-        style={{ textDecoration: "none", color: "blue" }}
-        to={`${url}/manageProduct`}
-      >
-        <Button color="inherit">
-          <DeleteForeverIcon sx={{ color: "secondary.main", mr: 2 }} />
-          Manage Product
-        </Button>
-      </NavLink>
-      <NavLink
-        style={{ textDecoration: "none", color: "blue" }}
-        to={`${url}/makeAdmin`}
-      >
-        <Button color="inherit">
-          <ManageAccountsIcon sx={{ color: "secondary.main", mr: 2 }} />
-          Make Admin
-        </Button>
-      </NavLink>
-      <NavLink
-        style={{ textDecoration: "none", color: "blue" }}
-        to={`${url}/manageUser`}
-      >
-        <Button color="inherit">
-          <ManageAccountsIcon sx={{ color: "secondary.main", mr: 2 }} />
-          Manage User
-        </Button>
-      </NavLink>
+      {admin && (
+        <Box>
+          <NavLink
+            style={{ textDecoration: "none", color: "blue" }}
+            to={`${url}/addProduct`}
+          >
+            <Button color="inherit">
+              <AddBoxIcon sx={{ color: "secondary.main", mr: 2 }} />
+              Add Product
+            </Button>
+          </NavLink>
+          <NavLink
+            style={{ textDecoration: "none", color: "blue" }}
+            to={`${url}/makeAdmin`}
+          >
+            <Button color="inherit">
+              <ManageAccountsIcon sx={{ color: "secondary.main", mr: 2 }} />
+              Make Admin
+            </Button>
+          </NavLink>
+          <NavLink
+            style={{ textDecoration: "none", color: "blue" }}
+            to={`${url}/manageProduct`}
+          >
+            <Button color="inherit">
+              <MiscellaneousServicesIcon
+                sx={{ color: "secondary.main", mr: 2 }}
+              />
+              Manage Product
+            </Button>
+          </NavLink>
+          <NavLink
+            style={{ textDecoration: "none", color: "blue" }}
+            to={`${url}/manageOrder`}
+          >
+            <Button color="inherit">
+              <ShoppingCartIcon sx={{ color: "secondary.main", mr: 2 }} />
+              Manage Order
+            </Button>
+          </NavLink>
+          <NavLink
+            style={{ textDecoration: "none", color: "blue" }}
+            to={`${url}/manageUser`}
+          >
+            <Button color="inherit">
+              <PeopleAltIcon sx={{ color: "secondary.main", mr: 2 }} />
+              Manage User
+            </Button>
+          </NavLink>
+        </Box>
+      )}
       <Button
         onClick={handlelogout}
         variant="contained"
         color="secondary"
-        sx={{ ml: 2 }}
+        sx={{ ml: 2, mt: 3 }}
       >
         LogOut
       </Button>
@@ -229,18 +248,21 @@ function DashBoard(props) {
           <Route path={`${path}/payment`}>
             <Payment></Payment>
           </Route>
-          <Route path={`${path}/addProduct`}>
+          <AdminRoute path={`${path}/addProduct`}>
             <AddProduct></AddProduct>
-          </Route>
-          <Route path={`${path}/manageProduct`}>
+          </AdminRoute>
+          <AdminRoute path={`${path}/manageProduct`}>
             <ManageProduct></ManageProduct>
-          </Route>
-          <Route path={`${path}/makeAdmin`}>
+          </AdminRoute>
+          <AdminRoute path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
-          </Route>
-          <Route path={`${path}/manageUser`}>
+          </AdminRoute>
+          <AdminRoute path={`${path}/manageOrder`}>
+            <ManageOrder></ManageOrder>
+          </AdminRoute>
+          <AdminRoute path={`${path}/manageUser`}>
             <ManageUser></ManageUser>
-          </Route>
+          </AdminRoute>
         </Switch>
       </Box>
     </Box>

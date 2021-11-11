@@ -57,7 +57,7 @@ const Order = ({ pd_data, orderId, status }) => {
             variant="body2"
             sx={{ fontWeight: 700, color: "info.main" }}
           >
-            Price: {price}
+            Price: ${price}
           </Typography>
           <Typography
             variant="body2"

@@ -22,7 +22,7 @@ const SingleProduct = ({ product }) => {
           <CardMedia
             component="img"
             alt="green iguana"
-            height="140"
+            height="250"
             image={img}
           />
           <CardContent>
@@ -35,7 +35,7 @@ const SingleProduct = ({ product }) => {
               {productName}
             </Typography>
             <Typography variant="body2" sx={{ fontWeight: 400 }}>
-              {description}
+              {description.slice(0, 220)}
             </Typography>
           </CardContent>
           <CardActions
@@ -46,7 +46,7 @@ const SingleProduct = ({ product }) => {
               color="text.secondary"
               sx={{ fontWeight: 700, color: "info.main" }}
             >
-              Price: {price}
+              Price: ${price}
             </Typography>
             <Button
               onClick={handlePurchase}

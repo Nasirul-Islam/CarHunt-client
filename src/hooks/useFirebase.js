@@ -17,6 +17,7 @@ const useFirebase = () => {
   const [user, setUser] = useState({});
   const [authError, setAuthError] = useState({});
   const [isLoding, setIsLoding] = useState(true);
+  const [admin, setAdmin] = useState(false);
 
   const auth = getAuth();
   const googleprovider = new GoogleAuthProvider();
@@ -29,6 +30,8 @@ const useFirebase = () => {
         setAuthError("");
         const newuser = { email, displayName: displayName };
         setUser(newuser);
+        // save user to database
+        saveUser(email, displayName, "POST");
         // send user name to firebase
         updateProfile(auth.currentUser, {
           displayName: displayName,
@@ -66,6 +69,8 @@ const useFirebase = () => {
         setAuthError("");
         const distination = location?.state?.from || "/";
         history.replace(distination);
+        // save user to database
+        saveUser(user.email, user.displayName, "PUT");
       })
       .catch((error) => {
         setAuthError(error.message);
@@ -84,6 +89,12 @@ const useFirebase = () => {
     });
     return () => unsubscribe;
   }, [auth]);
+  // lode admin
+  useEffect(() => {
+    fetch(`http://localhost:5000/users/${user.email}`)
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.admin));
+  }, [user.email]);
   // logOut
   const logOut = () => {
     setIsLoding(true);
@@ -96,10 +107,26 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoding(false));
   };
+  // save user to database
+  const saveUser = (email, displayName, method) => {
+    const user = { email, displayName };
+    fetch("http://localhost:5000/users", {
+      method: method,
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   return {
     user,
-    authError,
+    admin,
     isLoding,
+    authError,
     registerUser,
     loginwithEmail,
     loginWithGoogle,

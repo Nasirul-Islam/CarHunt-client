@@ -1,12 +1,26 @@
-import { Container, Typography } from "@mui/material";
-import React from "react";
+import { Container, Typography, Alert } from "@mui/material";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const MakeAdmin = () => {
+  const [success, setSuccess] = useState(false);
   const { register, reset, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    reset();
+    fetch("http://localhost:5000/users/admin", {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          setSuccess(true);
+          reset();
+        }
+      });
   };
   return (
     <Container sx={{ textAlign: "center", my: 5 }}>
@@ -23,6 +37,7 @@ const MakeAdmin = () => {
         <br />
         <input type="submit" value="Create Admin" className="submitBtn" />
       </form>
+      {success && <Alert severity="success">Create Admin Successfully</Alert>}
     </Container>
   );
 };

@@ -63,15 +63,11 @@ const Purchase = () => {
                   gutterBottom
                   variant="h5"
                   component="div"
-                  sx={{ fontWeight: 700, color: "secondary.main" }}
+                  sx={{ fontWeight: 700 }}
                 >
                   {productsresult?.productName}
                 </Typography>
-                <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ fontWeight: 400, color: "secondary.main" }}
-                >
+                <Typography variant="body2" sx={{ fontWeight: 400 }}>
                   {productsresult?.description}
                 </Typography>
               </CardContent>
@@ -80,10 +76,9 @@ const Purchase = () => {
               >
                 <Typography
                   variant="body2"
-                  color="text.secondary"
-                  sx={{ fontWeight: 700, color: "secondary.main" }}
+                  sx={{ fontWeight: 700, color: "info.main" }}
                 >
-                  Price: {productsresult?.price}
+                  Price: ${productsresult?.price}
                 </Typography>
               </CardActions>
             </Card>
