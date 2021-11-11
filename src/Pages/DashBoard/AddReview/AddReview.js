@@ -1,8 +1,10 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
+import useAuth from "../../../hooks/useAuth";
 
-const AddProduct = () => {
+const AddReview = () => {
+  const { user } = useAuth();
   const {
     register,
     reset,
@@ -10,7 +12,8 @@ const AddProduct = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    fetch("http://localhost:5000/products", {
+    console.log(data);
+    fetch("http://localhost:5000/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -22,6 +25,7 @@ const AddProduct = () => {
         if (data.insertedId) {
           alert("added successfully");
           reset();
+          console.log(data);
         }
       });
   };
@@ -33,26 +37,30 @@ const AddProduct = () => {
         gutterBottom
         component="div"
       >
-        Add New Product
+        Give Your Review
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)} className="loginform">
-        <input placeholder="Product Name" {...register("productName")} />
+        <input value={user?.displayName} {...register("name")} />
         <br />
-        <input placeholder="Description" {...register("description")} />
+        <input value={user?.email} {...register("email")} />
         <br />
         <input
-          placeholder="Image URL"
-          {...register("img", { required: true })}
+          placeholder="Comment"
+          {...register("comment", { required: true })}
         />
         <br />
-        <input type="number" placeholder="Price" {...register("price")} />
+        <input
+          type="number"
+          placeholder="Rating"
+          {...register("rating", { min: 1, max: 5 })}
+        />
         <br />
         {errors.password && <span>This field is required</span>}
         <br />
-        <input type="submit" value="Confirm" className="submitBtn" />
+        <input type="submit" value="Review" className="submitBtn" />
       </form>
     </Container>
   );
 };
 
-export default AddProduct;
+export default AddReview;

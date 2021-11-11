@@ -30,15 +30,11 @@ const SingleProduct = ({ product }) => {
               gutterBottom
               variant="h5"
               component="div"
-              sx={{ fontWeight: 700, color: "secondary.main" }}
+              sx={{ fontWeight: 700 }}
             >
               {productName}
             </Typography>
-            <Typography
-              variant="body2"
-              color="text.secondary"
-              sx={{ fontWeight: 400, color: "secondary.main" }}
-            >
+            <Typography variant="body2" sx={{ fontWeight: 400 }}>
               {description}
             </Typography>
           </CardContent>
@@ -48,7 +44,7 @@ const SingleProduct = ({ product }) => {
             <Typography
               variant="body2"
               color="text.secondary"
-              sx={{ fontWeight: 700, color: "secondary.main" }}
+              sx={{ fontWeight: 700, color: "info.main" }}
             >
               Price: {price}
             </Typography>

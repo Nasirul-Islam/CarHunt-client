@@ -1,63 +1,21 @@
-import { Container, Grid, Paper, Typography } from "@mui/material";
-import React from "react";
+import { Container, Grid, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import StarIcon from "@mui/icons-material/Star";
+import { Box } from "@mui/system";
 
 const Review = () => {
-  const services = [
-    {
-      name: "carhunt",
-      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
-      price: "300000",
-      id: 3,
-    },
-    {
-      name: "carhunt",
-      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
-      price: "300000",
-      id: 2,
-    },
-    {
-      name: "carhunt",
-      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
-      price: "300000",
-      id: 1,
-    },
-    {
-      name: "carhunt",
-      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
-      price: "300000",
-      id: 4,
-    },
-    {
-      name: "carhunt",
-      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
-      price: "300000",
-      id: 5,
-    },
-    {
-      name: "carhunt",
-      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
-      price: "300000",
-      id: 6,
-    },
-    {
-      name: "carhunt",
-      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
-      price: "300000",
-      id: 7,
-    },
-    {
-      name: "carhunt",
-      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
-      price: "300000",
-      id: 8,
-    },
-    {
-      name: "carhunt",
-      describe: "loreodmf sijdfoidsjf sdoi iodjfodif",
-      price: "300000",
-      id: 9,
-    },
-  ];
+  const [review, setReview] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/review")
+      .then((res) => res.json())
+      .then((data) => {
+        setReview(data);
+        console.log(data);
+      });
+  }, []);
   return (
     <Container sx={{ textAlign: "center", my: 5 }}>
       <Typography
@@ -69,13 +27,37 @@ const Review = () => {
         REVIEWS
       </Typography>
       <Grid container spacing={2}>
-        {services.map((service) => (
-          <Grid item xs={12} sm={6} md={3} key={service.id}>
-            <Paper elevation={3}>
-              <h2>{service.name}</h2>
-              <h3>{service.describe}</h3>
-              <h4>{service.price}</h4>
-            </Paper>
+        {review?.map((data) => (
+          <Grid item xs={12} sm={6} md={3} key={data._id}>
+            <Card sx={{ minWidth: 275 }}>
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  component="div"
+                  sx={{ fontWeight: 700 }}
+                >
+                  {data?.name}
+                </Typography>
+                <Typography variant="body2" sx={{ fontWeight: 400 }}>
+                  {data?.comment}
+                </Typography>
+              </CardContent>
+              <CardActions
+                sx={{ display: "flex", justifyContent: "space-between" }}
+              >
+                <Typography
+                  variant="body2"
+                  color="text.secondary"
+                  sx={{
+                    fontWeight: 700,
+                    color: "info.main",
+                  }}
+                >
+                  Rating: {data?.rating}
+                </Typography>
+                <StarIcon sx={{ color: "info.main" }} />
+              </CardActions>
+            </Card>
           </Grid>
         ))}
       </Grid>
