@@ -15,7 +15,6 @@ const Navigation = () => {
   const handlelogout = () => {
     logOut();
   };
-  console.log(user);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ backgroundColor: "#19539c" }}>

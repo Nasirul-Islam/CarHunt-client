@@ -26,17 +26,30 @@ const SingleProduct = ({ product }) => {
             image={img}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              sx={{ fontWeight: 700, color: "secondary.main" }}
+            >
               {productName}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{ fontWeight: 400, color: "secondary.main" }}
+            >
               {description}
             </Typography>
           </CardContent>
           <CardActions
             sx={{ display: "flex", justifyContent: "space-between" }}
           >
-            <Typography variant="body2" color="text.secondary">
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              sx={{ fontWeight: 700, color: "secondary.main" }}
+            >
               Price: {price}
             </Typography>
             <Button

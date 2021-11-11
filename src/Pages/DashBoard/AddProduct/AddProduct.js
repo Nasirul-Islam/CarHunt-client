@@ -1,10 +1,8 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
-import useAuth from "../../../hooks/useAuth";
 
 const AddProduct = () => {
-  const { user } = useAuth();
   const {
     register,
     reset,
@@ -12,7 +10,6 @@ const AddProduct = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    // data.status = "pending";
     fetch("http://localhost:5000/products", {
       method: "POST",
       headers: {
