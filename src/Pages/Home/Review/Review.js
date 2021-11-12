@@ -4,6 +4,16 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import StarIcon from "@mui/icons-material/Star";
+import Box from "@mui/material/Box";
+import Rating from "@mui/material/Rating";
+
+const labels = {
+  1: "Useless",
+  2: "Poor",
+  3: "Ok",
+  4: "Good",
+  5: "Excellent",
+};
 
 const Review = () => {
   const [review, setReview] = useState([]);
@@ -51,9 +61,27 @@ const Review = () => {
                     color: "info.main",
                   }}
                 >
-                  Rating: {data?.rating}
+                  Rating
                 </Typography>
-                <StarIcon sx={{ color: "error.main" }} />
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <Rating
+                    name="text-feedback"
+                    value={data?.rating}
+                    readOnly
+                    precision={0.5}
+                    emptyIcon={
+                      <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+                    }
+                  />
+                  <Box sx={{ color: "error.main", ml: 2 }}>
+                    {labels[data?.rating]}
+                  </Box>
+                </Box>
               </CardActions>
             </Card>
           </Grid>

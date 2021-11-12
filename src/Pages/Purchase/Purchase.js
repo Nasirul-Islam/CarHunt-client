@@ -55,7 +55,7 @@ const Purchase = () => {
               <CardMedia
                 component="img"
                 alt="green iguana"
-                height="250"
+                height="300"
                 image={productsresult?.img}
               />
               <CardContent>

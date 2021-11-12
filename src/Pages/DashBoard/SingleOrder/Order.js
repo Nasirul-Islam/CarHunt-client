@@ -34,7 +34,7 @@ const Order = ({ pd_data, orderId, status }) => {
         <CardMedia
           component="img"
           alt="green iguana"
-          height="140"
+          height="270"
           image={img}
         />
         <CardContent>
