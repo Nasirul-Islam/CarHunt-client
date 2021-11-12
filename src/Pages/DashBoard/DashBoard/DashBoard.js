@@ -19,13 +19,7 @@ import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import MiscellaneousServicesIcon from "@mui/icons-material/MiscellaneousServices";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
-import {
-  Switch,
-  Route,
-  useParams,
-  useRouteMatch,
-  NavLink,
-} from "react-router-dom";
+import { Switch, Route, useRouteMatch, NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 import useAuth from "../../../hooks/useAuth";
 import MyOrder from "../MyOrder/MyOrder";
@@ -49,7 +43,7 @@ function DashBoard(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  const { user, logOut } = useAuth();
+  const { logOut } = useAuth();
   const handlelogout = () => {
     logOut();
   };
