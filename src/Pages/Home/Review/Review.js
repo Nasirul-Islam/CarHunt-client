@@ -8,7 +8,7 @@ import StarIcon from "@mui/icons-material/Star";
 const Review = () => {
   const [review, setReview] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch("https://pacific-oasis-97349.herokuapp.com/review")
       .then((res) => res.json())
       .then((data) => {
         setReview(data);
@@ -27,7 +27,7 @@ const Review = () => {
       <Grid container spacing={2}>
         {review?.map((data) => (
           <Grid item xs={12} sm={6} md={3} key={data._id}>
-            <Card sx={{ minWidth: 275 }}>
+            <Card>
               <CardContent>
                 <Typography
                   variant="h5"

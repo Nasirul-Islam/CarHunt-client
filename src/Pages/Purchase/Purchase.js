@@ -30,7 +30,7 @@ const Purchase = () => {
   const onSubmit = (data) => {
     data.status = "pending";
     data.purchaseid = id;
-    fetch("http://localhost:5000/order", {
+    fetch("https://pacific-oasis-97349.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

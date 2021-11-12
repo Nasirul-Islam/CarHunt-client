@@ -11,7 +11,7 @@ const Order = ({ pd_data, orderId, status }) => {
   //   console.log(pd_data);
   const handleCancel = (id) => {
     if (window.confirm("Are you sure?")) {
-      fetch(`http://localhost:5000/cancel/${id}`, {
+      fetch(`https://pacific-oasis-97349.herokuapp.com/cancel/${id}`, {
         method: "DELETE",
         headers: {
           "content-type": "application/json",
@@ -30,7 +30,7 @@ const Order = ({ pd_data, orderId, status }) => {
   };
   return (
     <>
-      <Card sx={{ maxWidth: 345 }}>
+      <Card>
         <CardMedia
           component="img"
           alt="green iguana"

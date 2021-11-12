@@ -18,7 +18,7 @@ const SingleProduct = ({ product }) => {
   return (
     <>
       <Grid item xs={12} sm={6} md={4}>
-        <Card sx={{ maxWidth: 345 }}>
+        <Card>
           <CardMedia
             component="img"
             alt="green iguana"
