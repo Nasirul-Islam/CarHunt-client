@@ -52,7 +52,7 @@ const AddReview = () => {
         <input
           type="number"
           placeholder="Rating"
-          {...register("rating", { min: 1, max: 5 })}
+          {...register("rating", { min: 0, max: 5 })}
         />
         <br />
         {errors.password && <span>This field is required</span>}

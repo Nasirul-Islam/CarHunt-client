@@ -76,7 +76,7 @@ const Navigation = () => {
               onClick={handlelogout}
               variant="contained"
               color="secondary"
-              sx={{ mt: 2 }}
+              sx={{ mt: 2, ml: 2 }}
             >
               LogOut
             </Button>

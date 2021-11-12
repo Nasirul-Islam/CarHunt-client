@@ -1,5 +1,5 @@
-import { Button, Container, Typography } from "@mui/material";
 import React from "react";
+import { Button, Container, Typography } from "@mui/material";
 import useProducts from "../../../hooks/useProducts";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -15,7 +15,7 @@ const ManageProduct = () => {
   // Delete Method inside function
   const handleDelete = (id) => {
     if (window.confirm("Are you sure?")) {
-      fetch(`http://localhost:5000/product/${id}`, {
+      fetch(`https://pacific-oasis-97349.herokuapp.com/product/${id}`, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
       })
@@ -59,7 +59,7 @@ const ManageProduct = () => {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {index}
+                    {index + 1}
                   </TableCell>
                   <TableCell align="right">{row?.productName}</TableCell>
                   <TableCell align="right">{row?.price}</TableCell>
