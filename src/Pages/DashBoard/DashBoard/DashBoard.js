@@ -118,7 +118,7 @@ function DashBoard(props) {
           >
             <Button color="inherit">
               <MiscellaneousServicesIcon
-                sx={{ color: "secondary.main", mr: 2 }}
+                sx={{ color: "secondary.main", mr: 1 }}
               />
               Manage Product
             </Button>

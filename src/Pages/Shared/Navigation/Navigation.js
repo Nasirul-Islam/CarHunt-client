@@ -13,6 +13,9 @@ import useAuth from "../../../hooks/useAuth";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
+import HomeIcon from "@mui/icons-material/Home";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import LoginIcon from "@mui/icons-material/Login";
 
 const Navigation = () => {
   const { user, logOut } = useAuth();
@@ -44,12 +47,18 @@ const Navigation = () => {
     <Box sx={{ width: 250 }} role="presentation">
       <List>
         <Link to="/home" style={{ textDecoration: "none", color: "blue" }}>
-          <Button color="inherit">Home</Button>
+          <Button color="inherit">
+            <HomeIcon sx={{ color: "secondary.main", mr: 2 }} />
+            Home
+          </Button>
         </Link>
         <Divider />
         {!user?.email ? (
           <Link to="/login" style={{ textDecoration: "none", color: "blue" }}>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit">
+              <LoginIcon sx={{ color: "secondary.main", mr: 2 }} />
+              Login
+            </Button>
           </Link>
         ) : (
           <>
@@ -57,13 +66,17 @@ const Navigation = () => {
               to="/dashBoard"
               style={{ textDecoration: "none", color: "blue" }}
             >
-              <Button color="inherit">DashBoard</Button>
+              <Button color="inherit">
+                <DashboardIcon sx={{ color: "secondary.main", mr: 2 }} />
+                DashBoard
+              </Button>
             </Link>
             <Divider />
             <Button
               onClick={handlelogout}
               variant="contained"
               color="secondary"
+              sx={{ mt: 2 }}
             >
               LogOut
             </Button>
