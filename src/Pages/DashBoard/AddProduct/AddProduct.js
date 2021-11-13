@@ -1,6 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
+import "./AddProduct.css";
 
 const AddProduct = () => {
   const {
@@ -35,7 +36,7 @@ const AddProduct = () => {
       >
         Add New Product
       </Typography>
-      <form onSubmit={handleSubmit(onSubmit)} className="loginform">
+      <form onSubmit={handleSubmit(onSubmit)} className="addProductform">
         <input placeholder="Product Name" {...register("productName")} />
         <br />
         <input placeholder="Description" {...register("description")} />

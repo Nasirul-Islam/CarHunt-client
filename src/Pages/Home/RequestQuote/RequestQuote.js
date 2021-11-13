@@ -27,7 +27,7 @@ const RequestQuote = () => {
           >
             Request A Quote
           </Typography>
-          <form onSubmit={handleSubmit(onSubmit)} className="loginform">
+          <form onSubmit={handleSubmit(onSubmit)} className="requestform">
             <input value={user?.displayName} {...register("displayName")} />
             <br />
             <input value={user?.email} type="email" {...register("email")} />

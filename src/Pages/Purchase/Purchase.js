@@ -92,7 +92,7 @@ const Purchase = () => {
             >
               Give Your Information
             </Typography>
-            <form onSubmit={handleSubmit(onSubmit)} className="loginform">
+            <form onSubmit={handleSubmit(onSubmit)} className="purchaseform">
               <input value={user?.displayName} {...register("name")} />
               <br />
               <input value={user?.email} {...register("email")} />

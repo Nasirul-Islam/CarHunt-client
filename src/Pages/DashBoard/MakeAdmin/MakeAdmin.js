@@ -1,6 +1,7 @@
 import { Container, Typography, Alert } from "@mui/material";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import "./MakeAdmin.css";
 
 const MakeAdmin = () => {
   const [success, setSuccess] = useState(false);
@@ -32,7 +33,7 @@ const MakeAdmin = () => {
       >
         Create New Admin
       </Typography>
-      <form onSubmit={handleSubmit(onSubmit)} className="loginform">
+      <form onSubmit={handleSubmit(onSubmit)} className="makeAdminform">
         <input placeholder="Email" {...register("email")} />
         <br />
         <input type="submit" value="Create Admin" className="submitBtn" />

@@ -43,7 +43,7 @@ const Register = () => {
         >
           Please Register
         </Typography>
-        <form onSubmit={handleSubmit(onSubmit)} className="loginform">
+        <form onSubmit={handleSubmit(onSubmit)} className="registerform">
           <input placeholder="Name" {...register("displayName")} />
           <br />
           <input placeholder="Email" type="email" {...register("email")} />

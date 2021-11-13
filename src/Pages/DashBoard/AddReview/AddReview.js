@@ -2,6 +2,7 @@ import { Container, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
+import "./AddReview.css";
 
 const AddReview = () => {
   const { user } = useAuth();
@@ -39,7 +40,7 @@ const AddReview = () => {
       >
         Give Your Review
       </Typography>
-      <form onSubmit={handleSubmit(onSubmit)} className="loginform">
+      <form onSubmit={handleSubmit(onSubmit)} className="addReviewform">
         <input value={user?.displayName} {...register("name")} />
         <br />
         <input value={user?.email} {...register("email")} />
