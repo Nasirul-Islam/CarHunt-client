@@ -1,0 +1,19 @@
+.loginform input {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+}
+.loginform .textarea {
+  width: 100%;
+}
+.loginform .submitBtn {
+  background-color: #9c27b0;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  width: 100%;
+  padding: 13px;
+  cursor: pointer;
+}

@@ -25,14 +25,14 @@ const Review = () => {
       });
   }, []);
   return (
-    <Container sx={{ textAlign: "center", my: 5 }}>
+    <Container sx={{ textAlign: "center", my: 8 }}>
       <Typography
-        sx={{ fontWeight: 700, mb: 5, color: "secondary.main" }}
+        sx={{ fontWeight: 700, my: 5, color: "secondary.main" }}
         variant="h4"
         gutterBottom
         component="div"
       >
-        REVIEWS
+        Clients Feedback
       </Typography>
       <Grid container spacing={2}>
         {review?.map((data) => (
