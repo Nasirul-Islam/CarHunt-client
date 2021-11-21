@@ -25,7 +25,7 @@ const ManageProduct = () => {
           if (data.deletedCount) {
             console.log(data);
             alert("Deleted Successfully");
-            // window.location.reload();
+            window.location.reload();
           }
         });
     }

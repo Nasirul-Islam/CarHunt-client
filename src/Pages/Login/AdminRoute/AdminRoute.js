@@ -9,6 +9,9 @@ const AdminRoute = ({ children, ...rest }) => {
   if (isLoding) {
     return <CircularProgress />;
   }
+  if (!admin) {
+    return <CircularProgress />;
+  }
   return (
     <Route
       {...rest}

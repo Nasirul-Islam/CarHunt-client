@@ -10,7 +10,7 @@ const Payment = () => {
         gutterBottom
         component="div"
       >
-        Payment System Comming Soon...
+        Payment System test
       </Typography>
     </div>
   );
