@@ -7,17 +7,20 @@ Link to live site of this project [https://carhunt-33808.web.app/]
 ## Small Description -
 
 <p>
-This is a vehicle related website. You can get vehicle car iformation from here. You can Purchase any car online. Here you will find luxurious and reasonably priced cars. Which can make your life easier and more enjoyable.
+This is a vehicle-related website. Users can get vehicle information from here. Users can purchase any car online. Here you will find luxurious and reasonably priced cars. Which can make their life easier and more enjoyable.
 </p>
 
 ## The feature of this website
 
 <ul>
-<li>This website is very user friendly.</li>
-<li>Users can easily Purchase any product and they can easily take any service.</li>
-<li>From the website you will find numerous experienced travel guides.</li>
-<li>You can book online for Purchase any product.</li>
-<li>We are always committed to providing you with good service.</li>
+<li>Built this website with the Firebase login system.</li>
+<li>The user needs to log in to buy any car.</li>
+<li>Users can log in with an email password or Google.</li>
+<li>Users can book any car and see what they have booked on the dashboard.</li>
+<li>Users can pay online through the card.</li>
+<li>Admin can see all bookings and approve or delete them.</li>
+<li>Admin can add a new car or delete a previous car.</li>
+<li>This website is fully responsive for small and large devices.</li>
 </ul>
 
 ## These are the libraries that have been installed for this project -
@@ -29,4 +32,4 @@ This is a vehicle related website. You can get vehicle car iformation from here.
 <li>Material icons</li>
 </ul>
 
-<p>Also more using firebase for authentication.</p>
+<p>Also more using Firebase for authentication.</p>
